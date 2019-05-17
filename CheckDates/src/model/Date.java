@@ -139,6 +139,7 @@ public class Date {
             default:
                 dayComplementation = "th";
         }
-        return this.getNameOfTheMonth() + " " + this.day + dayComplementation ;
+        return this.getNameOfTheMonth() + " " + this.day + dayComplementation + "\n"
+                + "Is valid: " + this.validateDate();
     }
 }
