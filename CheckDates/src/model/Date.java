@@ -101,6 +101,25 @@ public class Date {
     }
     
     /**
+     * Verify if the Date actually exists in the Gregorian Calendar.
+     * @return True, if the date exists.
+     */
+    public boolean validateDate() {
+        int day = this.day;
+        int month = this.month;
+        if (day > 0 && day < 32 && month > 0 && month < 13
+                &&
+                (month == 2 && (day < 30)
+                ||
+                ((month == 4) || month == 6 || month == 9 || month == 11) && (day < 31)
+                ||
+                (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12))) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
      * Returns the class information pretty formatted.
      * @return 
      */
