@@ -99,11 +99,27 @@ public class Date {
                 return "Invalid";
         }
     }
-
+    
+    /**
+     * Returns the class information pretty formatted.
+     * @return 
+     */
     @Override
     public String toString() {
-        return "\n"
-                + "Day: " + day + "\n"
-                + "Month: " + month + "\n";
+        String dayComplementation = null;
+        switch (this.day) {
+            case 1:
+                dayComplementation = "st";
+                break;
+            case 2:
+                dayComplementation = "nd";
+                break;
+            case 3:
+                dayComplementation = "rd";
+                break;
+            default:
+                dayComplementation = "th";
+        }
+        return this.getNameOfTheMonth() + " " + this.day + dayComplementation ;
     }
 }
