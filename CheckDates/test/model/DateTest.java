@@ -56,6 +56,8 @@ public class DateTest {
     
     @Before
     public void setUp() {
+        DATE.setDay((byte) 10);
+        DATE.setMonth((byte) 01);
     }
     
     @After
@@ -95,6 +97,18 @@ public class DateTest {
      */
     @Test
     public void testToString() {
+    }
+    
+    /**
+     * Test of getNameOfTheMonth method, of class Date.
+     */
+    @Test
+    public void testGetNameOfTheMonth() {
+        assertEquals(DATE.getNameOfTheMonth(), "January");
+        DATE.setMonth((byte) 5);
+        assertEquals(DATE.getNameOfTheMonth(), "May");
+        DATE.setMonth((byte) 13);
+        assertEquals(DATE.getNameOfTheMonth(), "Invalid");
     }
     
 }
