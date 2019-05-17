@@ -97,13 +97,13 @@ public class DateTest {
      */
     @Test
     public void testToString() {
-        assertEquals(DATE.toString(), "January 10th");
+        assertEquals(DATE.toString(), "January 10th\nIs valid: true");
         DATE.setMonth((byte) 5);
         DATE.setDay((byte) 1);
-        assertEquals(DATE.toString(), "May 1st");
+        assertEquals(DATE.toString(), "May 1st\nIs valid: true");
         DATE.setDay((byte) 3);
         DATE.setMonth((byte) 13);
-        assertEquals(DATE.toString(), "Invalid 3rd");
+        assertEquals(DATE.toString(), "Invalid 3rd\nIs valid: false");
     }
     
     /**
@@ -117,5 +117,35 @@ public class DateTest {
         DATE.setMonth((byte) 13);
         assertEquals(DATE.getNameOfTheMonth(), "Invalid");
     }
+    
+    /**
+     * Test of validateDate method, of class Date.
+     */
+    @Test
+    public void testValidateDate() {
+        DATE.toString();
+        assertEquals(DATE.validateDate(), true);
+        
+        DATE.setMonth((byte) 5);
+        DATE.setDay((byte) 32);
+        DATE.toString();
+        assertEquals(DATE.validateDate(), false);
+        
+        DATE.setMonth((byte) 5);
+        DATE.setDay((byte) 31);
+        DATE.toString();
+        assertEquals(DATE.validateDate(), true);
+        
+        DATE.setMonth((byte) 2);
+        DATE.setDay((byte) 30);
+        DATE.toString();
+        assertEquals(DATE.validateDate(), false);
+        
+        DATE.setMonth((byte) 2);
+        DATE.setDay((byte) 29);
+        DATE.toString();
+        assertEquals(DATE.validateDate(), true);
+    }
+    
     
 }
