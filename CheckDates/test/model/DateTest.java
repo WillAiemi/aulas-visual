@@ -97,6 +97,13 @@ public class DateTest {
      */
     @Test
     public void testToString() {
+        assertEquals(DATE.toString(), "January 10th");
+        DATE.setMonth((byte) 5);
+        DATE.setDay((byte) 1);
+        assertEquals(DATE.toString(), "May 1st");
+        DATE.setDay((byte) 3);
+        DATE.setMonth((byte) 13);
+        assertEquals(DATE.toString(), "Invalid 3rd");
     }
     
     /**
